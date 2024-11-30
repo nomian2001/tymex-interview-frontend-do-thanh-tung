@@ -1,8 +1,19 @@
-
+import { Banner } from '../components/banner';
+import { Filter } from '../components/filter';
+import { Layout } from '../components/layout';
 
 const HomePage = () => {
     return (
-        <h1>Home Page</h1>
+        <Layout>
+            <Banner />
+            <div className="flex space-x-4">
+                <Filter />
+
+                <div className="w-full">
+                    <h1>helo</h1>
+                </div>
+            </div>
+        </Layout>
     );
 };
 
