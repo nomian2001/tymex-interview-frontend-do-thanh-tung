@@ -3,7 +3,13 @@ import { Button, Input, Select, Slider, Typography } from 'antd';
 import { useMemo } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-import { DEFAULT_FILTER_FORM, PRICE_ORDER_OPTIONS, TIME_OPTIONS } from '../../constants';
+import {
+    DEFAULT_FILTER_FORM,
+    NFT_THEME_OPTIONS,
+    PRICE_ORDER_OPTIONS,
+    TIER_OPTIONS,
+    TIME_OPTIONS,
+} from '../../constants';
 import { useQueryParams } from '../../hooks/use-query-params';
 import { QueryFilterDto } from '../../services/dtos/query-filter.dto.ts';
 import { FilterFields } from '../../types';
@@ -43,7 +49,36 @@ export const Filter = () => {
                     render={({ field, fieldState }) => {
                         return (
                             <FormWrapper label="Price">
-                                <Slider {...field} range />
+                                <Slider
+                                    {...field}
+                                    range
+                                    tooltip={{
+                                        formatter: value => `${value} NFT`,
+                                        style: {
+                                            background:
+                                                'linear-gradient(91.27deg, rgba(218, 69, 143, 0) 0.55%, #DA41A2 24.03%, #DA37CE 83.19%, rgba(218, 52, 221, 0) 102.8%)',
+                                        },
+                                        open: true,
+                                    }}
+                                    styles={{
+                                        tracks: {
+                                            background:
+                                                'linear-gradient(91.27deg, rgba(218, 69, 143, 0) 0.55%, #DA41A2 24.03%, #DA37CE 83.19%, rgba(218, 52, 221, 0) 102.8%)',
+                                            backgroundColor: 'transparent',
+                                        },
+
+                                        track: {
+                                            background:
+                                                'linear-gradient(91.27deg, rgba(218, 69, 143, 0) 0.55%, #DA41A2 24.03%, #DA37CE 83.19%, rgba(218, 52, 221, 0) 102.8%)',
+                                            backgroundColor: 'transparent',
+                                        },
+                                        handle: {
+                                            background:
+                                                'radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, rgba(255, 84, 238, 0) 100%)',
+                                            backgroundColor: 'transparent',
+                                        },
+                                    }}
+                                />
                             </FormWrapper>
                         );
                     }}
@@ -54,7 +89,7 @@ export const Filter = () => {
                     render={({ field, fieldState }) => {
                         return (
                             <FormWrapper label="Tier">
-                                <Select {...field} options={[]} />
+                                <Select {...field} options={TIER_OPTIONS} />
                             </FormWrapper>
                         );
                     }}
@@ -65,7 +100,7 @@ export const Filter = () => {
                     render={({ field, fieldState }) => {
                         return (
                             <FormWrapper label="Theme">
-                                <Select {...field} options={[]} />
+                                <Select {...field} options={NFT_THEME_OPTIONS} />
                             </FormWrapper>
                         );
                     }}
