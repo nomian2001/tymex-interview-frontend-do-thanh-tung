@@ -16,6 +16,18 @@ export function toCamelCase(str: string): string {
         .replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => 
             index === 0 ? match.toLowerCase() : match.toUpperCase()
         )
-        .replace(/\s+/g, '') 
-        .replace(/[^a-zA-Z0-9]/g, ''); 
+        .replace(/\s+/g, '')  // Remove spaces
+        .replace(/[^a-zA-Z0-9]/g, '');  // Remove non-alphanumeric characters
+}
+
+export function camelCaseToNormal(str: string): string {
+    const result = str
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2') // Insert space before uppercase letter
+        .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2') // Handle consecutive uppercase letters like 'HTTPResponse'
+        .replace(/([A-Z])/g, ' $1') // Add space before each uppercase letter
+        .trim() // Remove any leading/trailing spaces
+        .replace(/\s+/g, ' '); // Replace multiple spaces with a single one
+    
+    // Capitalize the first letter of each word
+    return result.replace(/\b\w/g, char => char.toUpperCase());
 }

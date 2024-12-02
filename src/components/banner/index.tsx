@@ -50,19 +50,30 @@ const figures = [
 export const Banner = () => {
     return (
         <div className="relative">
-            <div className="relative flex my-16">
-                <img className="ml-[178px]" src="/assets/images/banner/new-shop-now.svg" alt="" />
-                <img src="/assets/images/banner/arrival.svg" alt="" />
+            <div className="my-8 lg:my-16 pl-10 lg:pl-[120px]" >
+                <img src="assets/images/banner/new-arrival.png" alt="new-arrival" className="w-[180px] lg:w-fit" />
             </div>
-            <div className="figure-board w-full relative pl-[148px] pt-[94px] pb-8">
-                <img className="absolute top-0 left-0 z-0" src="/assets/images/banner/figure-board.svg" alt="" />
-                <div className="relative z-0 flex gap-[68px]">
-                    {figures.map(figure => (
-                        <FigureWidget key={figure.name} image={figure.image} frame={figure.frame} title={figure.name} />
-                    ))}
-                </div>
+            <div className="w-full relative  pb-8 flex items-center">
+                <figure className="h-[185px] lg:h-[300px] bg-banner-background w-full">
+                    <div className="flex z-0 absolute bottom-1/2 transform translate-y-1/2 -translate-x-[100px]  lg:pl-60 lg:pr-12 w-full">
+                        <div className="scale-[0.4] lg:scale-100 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-[68px] sm:gap-[68px]">
+                            {figures.map(figure => (
+                                <FigureWidget
+                                    key={figure.name}
+                                    image={figure.image}
+                                    frame={figure.frame}
+                                    title={figure.name}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </figure>
+                <img
+                    className="absolute right-0 bottom-8 w-[180px] lg:w-fit"
+                    src="/assets/images/banner/the-dj.svg"
+                    alt=""
+                />
             </div>
-            <img className="absolute right-0 bottom-0" src="/assets/images/banner/the-dj.svg" alt="" />
         </div>
     );
 };

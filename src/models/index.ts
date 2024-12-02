@@ -12,6 +12,12 @@ class AuthorModel {
   lastName!: string;
 
   @Expose()
+  @Transform(({obj}) => {
+    return `${obj.lastName} ${obj.firstName}`
+  })
+  fullName!: string;
+
+  @Expose()
   email!: string;
 
   @Expose()
