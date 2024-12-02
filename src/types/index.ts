@@ -11,11 +11,10 @@ export enum ETIME {
 
 export enum ENFT_THEME {
     ALL = 'all',
+    COLORFUL ='colorful',
+    LIGHT = 'light',
+    DARK= 'dark',
     HALLOWEEN = 'halloween',
-    SPACE = 'space',
-    STEAMPUNK = 'steampunk',
-    CYBERPUNK = 'cyberpunk',
-    FANTASY = 'fantasy',
 }
 
 export enum ENFT_CATEGORY {
@@ -40,11 +39,11 @@ DELUXE = 'deluxe'
 
 export interface FilterFields {
     search: Nullable<string>;
-    price: Nullable<number[]>;
+    price?: Nullable<number[]>;
     tier: Nullable<string>;
     theme: Nullable<string>;
-    time: Nullable<ETIME>;
-    priceOrder: Nullable<EPRICE_ORDER>;
+    time: Nullable<string>;
+    priceOrder: Nullable<string>;
 }
 
 export type IProduct = {

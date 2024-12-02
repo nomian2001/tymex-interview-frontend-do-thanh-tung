@@ -15,22 +15,29 @@ import { QueryFilterDto } from '../../services/dtos/query-filter.dto.ts';
 import { FilterFields } from '../../types';
 import { FormWrapper } from '../form-wrapper';
 
-export const Filter = () => {
-    const { params, setParams } = useQueryParams(QueryFilterDto);
+
+interface FilterProps {
+    queryParams?: Partial<QueryFilterDto>;
+    updateQueryParams?: (params: Partial<QueryFilterDto>) => void;
+}
+
+export const Filter: React.FC<FilterProps> = (props) => {
+    const {queryParams, updateQueryParams} = props;
+
 
     const { handleSubmit, control, reset } = useForm({
         defaultValues: useMemo(() => {
-            return { ...DEFAULT_FILTER_FORM, ...params };
+            return { ...DEFAULT_FILTER_FORM, ...queryParams };
         }, []),
     });
 
     const onSubmit: SubmitHandler<FilterFields> = data => {
-        setParams(data as Partial<QueryFilterDto>);
+        updateQueryParams?.(data as Partial<QueryFilterDto>);
     };
 
     const onClickResetButton = () => {
         reset(DEFAULT_FILTER_FORM);
-        setParams(DEFAULT_FILTER_FORM as Partial<QueryFilterDto>);
+        updateQueryParams?.(DEFAULT_FILTER_FORM as Partial<QueryFilterDto>);
     };
 
     return (
@@ -58,7 +65,6 @@ export const Filter = () => {
                                             background:
                                                 'linear-gradient(91.27deg, rgba(218, 69, 143, 0) 0.55%, #DA41A2 24.03%, #DA37CE 83.19%, rgba(218, 52, 221, 0) 102.8%)',
                                         },
-                                        open: true,
                                     }}
                                     styles={{
                                         tracks: {

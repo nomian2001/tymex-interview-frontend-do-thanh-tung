@@ -2,9 +2,9 @@ import { ENFT_CATEGORY, ENFT_THEME, ENFT_TIER, EPRICE_ORDER, ETIME, FilterFields
 
 export const DEFAULT_FILTER_FORM: FilterFields = {
     search: null,
-    price: null,
+    price: undefined,
     tier: ENFT_TIER.ALL,
-    theme: ENFT_TIER.ALL,
+    theme: ENFT_THEME.ALL,
     time: ETIME.LATEST,
     priceOrder: EPRICE_ORDER.ASCENDING,
 };
@@ -80,19 +80,16 @@ export const NFT_THEME_OPTIONS = [
         value: ENFT_THEME.HALLOWEEN,
     },
     {
-        label: 'Space',
-        value: ENFT_THEME.SPACE,
+        label: 'Light',
+        value: ENFT_THEME.LIGHT,
     },
     {
-        label: 'Steampunk',
-        value: ENFT_THEME.STEAMPUNK,
+        label: 'Dark',
+        value: ENFT_THEME.DARK,
     },
     {
-        label: 'Cyberpunk',
-        value: ENFT_THEME.CYBERPUNK,
+        label: 'Colorful',
+        value: ENFT_THEME.COLORFUL,
     },
-    {
-        label: 'Fantasy',
-        value: ENFT_THEME.FANTASY,
-    },
+
 ] as const;
