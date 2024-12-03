@@ -2,13 +2,10 @@ import { Expose } from 'class-transformer';
 
 export class QueryFilterDto {
     @Expose()
-    page?: number;
-
-    @Expose()
-    limit?: number;
-
-    @Expose()
     search?: string;
+
+    @Expose()
+    category?: string;
 
     @Expose()
     price?: number[];

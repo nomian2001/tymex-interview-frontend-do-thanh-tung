@@ -23,9 +23,9 @@ const imageSource: Record<number, string> = {
 const CardNftCover: React.FC<CardNftCoverProps> = props => {
     const { imageSrc, className, style, category } = props;
     return (
-        <div className={classNames('p-4  !flex justify-center', className)}>
-            <figure style={style} className="lg:w-[235px] lg:h-[233px] rounded relative ">
-                <div className="absolute top-2 left-2 bg-[#313B4580] py-1 px-3 rounded">
+        <div className={classNames('p-4 !flex justify-center', className)}>
+            <figure style={style} className="w-[160px] h-[140px] lg:w-[210px] lg:h-[209px] xl:w-[235px] xl:h-[233px] rounded relative ">
+                <div className="text-xs lg:text-sm absolute top-2 left-2 bg-[#313B4580] py-1 px-3 rounded">
                     {camelCaseToNormal(category)}
                 </div>
                 <img className={'absolute bottom-0'} src={imageSrc} alt="" />
@@ -79,7 +79,6 @@ export const CardNft: React.FC<CardNftProps> = props => {
     return (
         <Card
             className={classNames('custom-card', containerClassName)}
-            hoverable
             cover={
                 <CardNftCover
                     style={{ background: renderCategoryBackground(product.category) }}
@@ -90,8 +89,8 @@ export const CardNft: React.FC<CardNftProps> = props => {
         >
             <div className="flex flex-col space-y-4">
                 <div className="flex justify-between items-center">
-                    <Typography.Text className="text-base">{product.title}</Typography.Text>
-                    <span className="text-sm inline-flex items-center">
+                    <Typography.Text className="text-sm lg:text-base">{product.title}</Typography.Text>
+                    <span className="text-xs lg:text-sm inline-flex items-center">
                         <Image
                             src="assets/images/card/ethereum-logo.svg"
                             alt="Etherium"

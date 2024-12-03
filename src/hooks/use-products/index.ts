@@ -25,5 +25,6 @@ export const useProducts = (queryParams: any) => {
                 metadata,
             };
         }, []),
+        staleTime: 0
     })
 }

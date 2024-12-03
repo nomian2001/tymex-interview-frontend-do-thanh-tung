@@ -30,6 +30,25 @@ export const TIME_OPTIONS = [
 export const TIER_OPTIONS = [
     {
         label: 'All',
+        value: ENFT_TIER.ALL,
+    },
+    {
+        label: 'Basic',
+        value: ENFT_TIER.BASIC,
+    },
+    {
+        label: 'Deluxe',
+        value: ENFT_TIER.DELUXE,
+    },
+    {
+        label: 'Premium',
+        value: ENFT_TIER.PREMIUM,
+    },
+]
+
+export const CATEGORY_OPTIONS = [
+    {
+        label: 'All',
         value: ENFT_CATEGORY.ALL,
     },
     {

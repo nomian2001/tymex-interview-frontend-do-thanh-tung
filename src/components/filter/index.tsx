@@ -10,10 +10,10 @@ import {
     TIER_OPTIONS,
     TIME_OPTIONS,
 } from '../../constants';
-import { useQueryParams } from '../../hooks/use-query-params';
 import { QueryFilterDto } from '../../services/dtos/query-filter.dto.ts';
 import { FilterFields } from '../../types';
 import { FormWrapper } from '../form-wrapper';
+import { GradientButton } from '../gradient-button/index.tsx';
 
 
 interface FilterProps {
@@ -133,11 +133,11 @@ export const Filter: React.FC<FilterProps> = (props) => {
                         );
                     }}
                 />
-                <div className="flex gap-1">
-                    <Button type="text" icon={<CloseCircleFilled />} onClick={onClickResetButton}>
+                <div className="flex items-center">
+                    <Button type="text" icon={<CloseCircleFilled className='text-[#FBC625]' />} onClick={onClickResetButton}>
                         <Typography.Text>Reset Filter</Typography.Text>
                     </Button>
-                    <Button htmlType="submit">Search</Button>
+                    <GradientButton htmlType="submit" isActive className='ml-10 h-11 w-[168px]'>Search</GradientButton>
                 </div>
             </div>
         </form>
