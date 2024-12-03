@@ -38,12 +38,12 @@ DELUXE = 'deluxe'
 }
 
 export interface FilterFields {
-    search: Nullable<string>;
-    price?: Nullable<number[]>;
-    tier: Nullable<string>;
-    theme: Nullable<string>;
-    time: Nullable<string>;
-    priceOrder: Nullable<string>;
+    search?: string;
+    price?: number[];
+    tier?: string;
+    theme?: string;
+    time?: string;
+    priceOrder?: string;
 }
 
 export type IProduct = {

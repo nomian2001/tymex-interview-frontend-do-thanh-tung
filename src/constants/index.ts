@@ -1,7 +1,7 @@
 import { ENFT_CATEGORY, ENFT_THEME, ENFT_TIER, EPRICE_ORDER, ETIME, FilterFields } from '../types';
 
 export const DEFAULT_FILTER_FORM: FilterFields = {
-    search: null,
+    search: undefined,
     price: undefined,
     tier: ENFT_TIER.ALL,
     theme: ENFT_THEME.ALL,
@@ -18,14 +18,14 @@ export const PRICE_ORDER_OPTIONS = [
         label: 'High to Low',
         value: EPRICE_ORDER.DESCENDING,
     },
-] as const;
+] ;
 
 export const TIME_OPTIONS = [
     {
         label: 'Latest',
         value: ETIME.LATEST,
     },
-] as const;
+] ;
 
 export const TIER_OPTIONS = [
     {
@@ -87,7 +87,7 @@ export const CATEGORY_OPTIONS = [
         label: 'Rare',
         value: ENFT_CATEGORY.RARE,
     },
-] as const;
+] ;
 
 export const NFT_THEME_OPTIONS = [
     {
@@ -111,4 +111,4 @@ export const NFT_THEME_OPTIONS = [
         value: ENFT_THEME.COLORFUL,
     },
 
-] as const;
+] ;
