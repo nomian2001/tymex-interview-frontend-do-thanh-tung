@@ -54,7 +54,7 @@ export const Banner = () => {
                 <img src="assets/images/banner/new-arrival.png" alt="new-arrival" className="w-[180px] lg:w-fit" />
             </div>
             <div className="w-full relative  pb-8 flex items-center">
-                <figure className="h-[185px] lg:h-[300px] bg-banner-background w-full">
+                <figure className="h-[185px] lg:h-[300px] bg-banner-figure-background w-full">
                     <div className="flex z-0 absolute bottom-1/2 transform translate-y-1/2 -translate-x-[100px]  lg:pl-60 lg:pr-12 w-full">
                         <div className="scale-[0.4] lg:scale-100 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-[68px] sm:gap-[68px]">
                             {figures.map(figure => (

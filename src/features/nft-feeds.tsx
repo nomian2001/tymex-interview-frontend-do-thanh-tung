@@ -1,4 +1,4 @@
-import { Card } from 'antd';
+import { Card, Typography } from 'antd';
 import uniqBy from 'lodash-es/uniqBy';
 import {  useState } from 'react';
 
@@ -28,6 +28,7 @@ export const NftFeeds = () => {
         ...pagination
     });
     const isEndPagination = data?.metadata.totalPages === pagination.page;
+    const isNotHaveProducts = products.length === 0 && data?.products.length === 0;
 
     const updateQueryParams = (fieldValues: Partial<QueryFilterDto>) => {
         setParams({
@@ -115,6 +116,8 @@ export const NftFeeds = () => {
                                 .map((item, index) => {
                                     return <Card key={index} loading />;
                                 }))}
+
+                    {isNotHaveProducts ? <Typography.Text>Please try again a few minutes later</Typography.Text> : <></>}
                 </div>
                 {!isEndPagination && (
                     <div className="flex justify-center items-center mt-8 lg:mt-12">

@@ -1,7 +1,8 @@
 import { CloseCircleFilled, SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Select, Slider, Typography } from 'antd';
-import { useMemo } from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { debounce } from 'lodash-es';
+import { useCallback, useEffect, useMemo } from 'react';
+import { Controller, SubmitHandler, useForm, useWatch } from 'react-hook-form';
 
 import {
     DEFAULT_FILTER_FORM,
@@ -25,7 +26,7 @@ export const Filter: React.FC<FilterProps> = (props) => {
     const {queryParams, updateQueryParams} = props;
 
 
-    const { handleSubmit, control, reset } = useForm({
+    const { handleSubmit, control, reset, getValues } = useForm({
         defaultValues: useMemo(() => {
             return { ...DEFAULT_FILTER_FORM, ...queryParams };
         }, []),
@@ -40,13 +41,31 @@ export const Filter: React.FC<FilterProps> = (props) => {
         updateQueryParams?.(DEFAULT_FILTER_FORM as Partial<QueryFilterDto>);
     };
 
+    const debounceSubmit = useCallback(
+        debounce((data: FilterFields) => {
+            updateQueryParams?.(data as Partial<QueryFilterDto>);
+        }, 500),
+        []
+    );
+
+    const watchSearchString = useWatch({
+        control,
+        name: 'search'
+    });
+
+
+      useEffect(() => {
+        const formValues = getValues();
+        debounceSubmit(formValues);
+    }, [watchSearchString, debounceSubmit]);
+
     return (
         <form className="flex flex-col space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <Controller
                 control={control}
                 name="search"
                 render={({ field, fieldState }) => {
-                    return <Input {...field} prefix={<SearchOutlined />} placeholder={'Quick Search'} />;
+                    return <Input {...field} prefix={<SearchOutlined />} placeholder={'Quick Search'}  />
                 }}
             />
             <div className="space-y-3">

@@ -1,7 +1,7 @@
 type Nullable<T> = T | null;
 
 export enum EPRICE_ORDER {
-    ASCENDING = 'asd',
+    ASCENDING = 'asc',
     DESCENDING = 'dsc',
 }
 

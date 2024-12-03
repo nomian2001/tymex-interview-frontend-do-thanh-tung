@@ -14,8 +14,13 @@ export function useQueryParams<T>(ModelClass: new () => T, defaultValues?: Parti
 
         const mergedParams = { ...defaultValues, ...searchParams };
 
+        console.log(plainToInstance(ModelClass, mergedParams, {
+            excludeExtraneousValues: true,
+        }))
+
         return plainToInstance(ModelClass, mergedParams, {
             excludeExtraneousValues: true,
+            exposeUnsetFields: false
         });
     }, [location.search, defaultValues, ModelClass]);
 
@@ -25,7 +30,7 @@ export function useQueryParams<T>(ModelClass: new () => T, defaultValues?: Parti
 
         const cleanedParams = removeFalsyKeysWithExceptions(plainParams);
 
-        const queryString = qs.stringify(cleanedParams, { addQueryPrefix: true, arrayFormat: 'comma' });
+        const queryString = qs.stringify(cleanedParams, { addQueryPrefix: true });
 
         navigate({ search: queryString }, { replace: true });
     };
