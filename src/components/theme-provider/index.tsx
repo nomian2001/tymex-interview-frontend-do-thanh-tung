@@ -17,6 +17,8 @@ export const AntdConfigProvider: React.FC<IThemeProvider> = props => {
                 algorithm: isDarkMode ? darkAlgorithm : defaultAlgorithm,
                 token: {
                     fontFamily: 'Inter',
+                    colorLink: "white",
+                    colorLinkHover: "#ccc"
                 },
             }}
         >

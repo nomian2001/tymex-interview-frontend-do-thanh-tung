@@ -1,6 +1,7 @@
 import { Image } from 'antd';
 
 import { Banner } from '../components/banner';
+import { Footer } from '../components/footer';
 import { Layout } from '../components/layout';
 import { NftFeeds } from '../features/nft-feeds';
 
@@ -13,7 +14,7 @@ const HomePage = () => {
             <Banner />
             <NftFeeds />
             <Image preview={false} className="mt-[54px]" src="/assets/images/frame.svg" alt="" />
-            {/* <Footer /> */}
+            <Footer />
         </Layout>
     );
 };
