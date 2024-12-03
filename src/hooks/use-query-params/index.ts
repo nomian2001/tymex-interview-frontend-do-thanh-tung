@@ -14,10 +14,6 @@ export function useQueryParams<T>(ModelClass: new () => T, defaultValues?: Parti
 
         const mergedParams = { ...defaultValues, ...searchParams };
 
-        console.log(plainToInstance(ModelClass, mergedParams, {
-            excludeExtraneousValues: true,
-        }))
-
         return plainToInstance(ModelClass, mergedParams, {
             excludeExtraneousValues: true,
             exposeUnsetFields: false

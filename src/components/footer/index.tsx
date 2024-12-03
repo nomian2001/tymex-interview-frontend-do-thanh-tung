@@ -1,16 +1,10 @@
-import { Divider, Input, theme, Typography, Image } from 'antd';
+import { Divider, Input, Typography, Image } from 'antd';
 
 import { GradientButton } from '../gradient-button';
 
 const { Link, Title } = Typography;
 
 export const Footer = () => {
-    const {
-        token: { colorBgBase, colorBgContainer },
-    } = theme.useToken();
-
-    console.log(colorBgBase, colorBgContainer);
-
     return (
         <footer className="bg-footer-color pb-[208px] px-8 pt-10 lg:px-40 lg:pt-[60px]">
             <div className="flex flex-col md:flex-row justify-between">
